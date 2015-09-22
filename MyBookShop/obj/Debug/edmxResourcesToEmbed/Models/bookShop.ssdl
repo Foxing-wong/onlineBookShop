@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adminInfo">
+    <Key>
+      <PropertyRef Name="adminID" />
+    </Key>
+    <Property Name="adminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adminName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adminNick" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adminPwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adminSkin" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="adminRole">
+    <Key>
+      <PropertyRef Name="sysID" />
+    </Key>
+    <Property Name="sysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adminId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="functionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="actionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isLogin" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bookInfo">
+    <Key>
+      <PropertyRef Name="bookID" />
+    </Key>
+    <Property Name="bookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bookName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="bookPrice" Type="money" Nullable="false" />
+    <Property Name="bookImg" Type="text" Nullable="false" />
+    <Property Name="bookNotes" Type="text" />
+    <Property Name="onlyBuy" Type="int" />
+    <Property Name="isDel" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="buyCar">
+    <Key>
+      <PropertyRef Name="sysID" />
+    </Key>
+    <Property Name="sysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="booksID" Type="int" Nullable="false" />
+    <Property Name="buyNum" Type="int" Nullable="false" />
+    <Property Name="buyUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="newsInfo">
+    <Key>
+      <PropertyRef Name="newsId" />
+    </Key>
+    <Property Name="newsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="newsTitle" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="newsContent" Type="text" Nullable="false" />
+    <Property Name="sumitTime" Type="datetime" Nullable="false" />
+    <Property Name="submitor" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="submitId" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orderDetails">
+    <Key>
+      <PropertyRef Name="sysid" />
+    </Key>
+    <Property Name="sysid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderId" Type="bigint" Nullable="false" />
+    <Property Name="bookId" Type="int" Nullable="false" />
+    <Property Name="bookPrice" Type="money" Nullable="false" />
+    <Property Name="buyNum" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orderInfo">
+    <Key>
+      <PropertyRef Name="orderId" />
+    </Key>
+    <Property Name="orderId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="submitTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="buyUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="toName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="toAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="toPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="orderState" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="payType" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="toInfo">
+    <Key>
+      <PropertyRef Name="sysid" />
+    </Key>
+    <Property Name="sysid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="toTitle" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="toName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="toAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="toPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userInfo">
+    <Key>
+      <PropertyRef Name="sysID" />
+    </Key>
+    <Property Name="sysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userPwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userTureName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userMail" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BookShopModelStoreContainer">
+    <EntitySet Name="adminInfo" EntityType="Self.adminInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="adminRole" EntityType="Self.adminRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bookInfo" EntityType="Self.bookInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="buyCar" EntityType="Self.buyCar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="newsInfo" EntityType="Self.newsInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orderDetails" EntityType="Self.orderDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orderInfo" EntityType="Self.orderInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="toInfo" EntityType="Self.toInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userInfo" EntityType="Self.userInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

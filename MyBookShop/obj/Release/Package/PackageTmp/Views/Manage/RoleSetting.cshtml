@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MyBookShop.Models.adminRole>
+@{
+    ViewBag.Title = "RoleSetting";
+    Layout = "~/Views/public/_adminLayout.cshtml";
+}
+<script type="text/javascript" src="@Url.Content("~/Content/manage/setUserRole.js")"></script>
+<form class="navbar-form navbar-left" role="search" method="post">
+    <div class="form-group">
+        <input name="keyWords" type="text" class="form-control" placeholder="请输入用户名" value="@ViewBag.swords">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+</form> 
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                用户名
+            </th>
+            <th>
+               菜单名称
+            </th>
+            <th>
+                当前权限状态
+            </th>
+            <th>
+                更多操作
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="info">
+                <td>
+                    @item.adminId
+                </td>
+                <td>
+                   @item.functionName
+                </td>
+                <td>
+                   @item.isLogin
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            变更状态为：
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="setUserRole('@MyBookShop.Models.EncryptHandler.Encrypt(item.sysID.ToString())','allow')">允许访问</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="setUserRole('@MyBookShop.Models.EncryptHandler.Encrypt(item.sysID.ToString())','refuse')"><span style="color:red">拒绝访问</span></a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (ViewData["pagemodel"] != null)
+{
+    <div class="pagerNav" style="text-align:center">@Html.Partial("PartialPager", ViewData["pagemodel"])</div>
+}
+else
+{ <h3 style="color:red;text-align:center;margin-top:150px;font-family:'Microsoft YaHei'">没有可用信息展示</h3>}
+

@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\chuliam\Desktop\WebSite</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>04/09/2015 18:58:14</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>04/09/2015 18:58:14</publishTime>
+    </File>
+    <File Include="bin/LitJSON.dll">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/07/2015 11:35:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>04/07/2015 11:35:58</publishTime>
+    </File>
+    <File Include="bin/MyBookShop.dll">
+      <publishTime>09/20/2015 21:01:31</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/07/2015 11:35:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>04/07/2015 11:35:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>04/07/2015 11:35:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>04/07/2015 11:35:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>04/07/2015 11:35:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>04/07/2015 11:35:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>04/07/2015 11:35:58</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.resources.dll">
+      <publishTime>04/09/2015 18:58:17</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>04/07/2015 11:35:59</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>04/07/2015 11:35:59</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>04/07/2015 11:35:59</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>04/07/2015 11:35:59</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>04/07/2015 11:35:59</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>04/07/2015 11:35:59</publishTime>
+    </File>
+    <File Include="bookImg/b1.jpg">
+      <publishTime>04/09/2015 20:21:55</publishTime>
+    </File>
+    <File Include="bookImg/b2.jpg">
+      <publishTime>04/09/2015 20:21:55</publishTime>
+    </File>
+    <File Include="bookImg/b3.jpg">
+      <publishTime>04/09/2015 20:21:55</publishTime>
+    </File>
+    <File Include="bookImg/b4.jpg">
+      <publishTime>04/09/2015 20:56:02</publishTime>
+    </File>
+    <File Include="bookImg/youhui.jpg">
+      <publishTime>05/15/2015 09:49:06</publishTime>
+    </File>
+    <File Include="content/20111129085658467.jpg">
+      <publishTime>04/07/2015 14:18:12</publishTime>
+    </File>
+    <File Include="content/20111129085716508.jpg">
+      <publishTime>04/07/2015 14:18:12</publishTime>
+    </File>
+    <File Include="content/addToBuyCar.png">
+      <publishTime>04/09/2015 20:30:03</publishTime>
+    </File>
+    <File Include="content/ad_read.jpg">
+      <publishTime>04/07/2015 18:28:57</publishTime>
+    </File>
+    <File Include="content/bootstrap.css">
+      <publishTime>05/26/2015 10:48:17</publishTime>
+    </File>
+    <File Include="content/buyCar/car.js">
+      <publishTime>05/28/2015 00:40:54</publishTime>
+    </File>
+    <File Include="content/buyCar/style.css">
+      <publishTime>05/13/2015 09:52:55</publishTime>
+    </File>
+    <File Include="content/buycarstyle.css">
+      <publishTime>05/12/2015 09:16:19</publishTime>
+    </File>
+    <File Include="content/editor/asp.net/bin/LitJSON.dll">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/asp.net/demo.aspx">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/asp.net/file_manager_json.ashx">
+      <publishTime>05/28/2015 16:27:33</publishTime>
+    </File>
+    <File Include="content/editor/asp.net/upload_json.ashx">
+      <publishTime>05/28/2015 16:24:34</publishTime>
+    </File>
+    <File Include="content/editor/kindeditor-all-min.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/kindeditor-all.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/kindeditor-min.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/kindeditor.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/lang/ar.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/lang/en.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/lang/ko.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/lang/zh_CN.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/lang/zh_TW.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/license.txt">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/anchor/anchor.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/autoheight/autoheight.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/baidumap/baidumap.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/baidumap/index.html">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/baidumap/map.html">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/clearhtml/clearhtml.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/code/code.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/code/prettify.css">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/code/prettify.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/emoticons.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/0.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/1.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/10.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/100.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/101.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/102.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/103.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/104.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/105.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/106.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/107.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/108.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/109.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/11.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/110.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/111.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/112.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/113.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/114.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/115.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/116.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/117.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/118.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/119.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/12.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/120.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/121.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/122.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/123.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/124.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/125.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/126.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/127.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/128.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/129.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/13.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/130.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/131.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/132.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/133.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/134.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/14.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/15.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/16.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/17.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/18.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/19.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/2.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/20.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/21.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/22.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/23.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/24.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/25.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/26.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/27.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/28.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/29.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/3.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/30.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/31.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/32.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/33.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/34.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/35.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/36.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/37.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/38.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/39.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/4.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/40.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/41.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/42.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/43.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/44.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/45.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/46.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/47.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/48.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/49.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/5.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/50.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/51.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/52.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/53.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/54.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/55.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/56.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/57.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/58.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/59.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/6.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/60.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/61.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/62.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/63.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/64.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/65.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/66.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/67.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/68.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/69.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/7.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/70.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/71.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/72.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/73.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/74.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/75.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/76.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/77.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/78.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/79.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/8.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/80.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/81.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/82.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/83.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/84.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/85.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/86.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/87.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/88.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/89.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/9.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/90.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/91.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/92.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/93.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/94.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/95.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/96.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/97.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/98.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/99.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/emoticons/images/static.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/filemanager/filemanager.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/filemanager/images/file-16.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/filemanager/images/file-64.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/filemanager/images/folder-16.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/filemanager/images/folder-64.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/filemanager/images/go-up.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/flash/flash.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/image/image.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/image/images/align_left.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/image/images/align_right.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/image/images/align_top.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/image/images/refresh.png">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/insertfile/insertfile.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/lineheight/lineheight.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/link/link.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/map/map.html">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/map/map.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/media/media.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/multiimage/images/image.png">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/multiimage/images/select-files-en.png">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/multiimage/images/select-files-zh_CN.png">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/multiimage/images/swfupload.swf">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/multiimage/multiimage.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/pagebreak/pagebreak.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/plainpaste/plainpaste.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/preview/preview.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/quickformat/quickformat.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/table/table.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/template/html/1.html">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/template/html/2.html">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/template/html/3.html">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/template/template.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/plugins/wordpaste/wordpaste.js">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/common/anchor.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/common/blank.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/common/flash.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/common/loading.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/common/media.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/common/rm.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/default/background.png">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/default/default.css">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/default/default.png">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/qq/editor.gif">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/qq/qq.css">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/editor/themes/simple/simple.css">
+      <publishTime>05/28/2015 16:05:14</publishTime>
+    </File>
+    <File Include="content/favicon.ico">
+      <publishTime>05/31/2015 14:51:59</publishTime>
+    </File>
+    <File Include="content/footer.jpg">
+      <publishTime>04/09/2015 20:59:59</publishTime>
+    </File>
+    <File Include="content/index/bn-arrows.png">
+      <publishTime>05/27/2015 22:26:04</publishTime>
+    </File>
+    <File Include="content/index/index.css">
+      <publishTime>05/27/2015 21:45:53</publishTime>
+    </File>
+    <File Include="content/index/indexNews.css">
+      <publishTime>05/27/2015 22:55:46</publishTime>
+    </File>
+    <File Include="content/index/indexNews.js">
+      <publishTime>05/27/2015 22:22:04</publishTime>
+    </File>
+    <File Include="content/index/jQueryindex.js">
+      <publishTime>05/27/2015 22:22:04</publishTime>
+    </File>
+    <File Include="content/js/jquery-1.4.2.min.js">
+      <publishTime>05/10/2015 16:54:03</publishTime>
+    </File>
+    <File Include="content/js/order.js">
+      <publishTime>05/12/2015 10:23:12</publishTime>
+    </File>
+    <File Include="content/left_main.js">
+      <publishTime>04/07/2015 15:27:12</publishTime>
+    </File>
+    <File Include="content/lo.png">
+      <publishTime>05/31/2015 12:56:52</publishTime>
+    </File>
+    <File Include="content/login.css">
+      <publishTime>04/07/2015 13:48:56</publishTime>
+    </File>
+    <File Include="content/logo.jpg">
+      <publishTime>04/07/2015 18:36:33</publishTime>
+    </File>
+    <File Include="content/manage/processOrder.js">
+      <publishTime>05/30/2015 18:22:22</publishTime>
+    </File>
+    <File Include="content/manage/setUserRole.js">
+      <publishTime>05/31/2015 00:10:51</publishTime>
+    </File>
+    <File Include="content/navbg.jpg">
+      <publishTime>04/07/2015 14:16:00</publishTime>
+    </File>
+    <File Include="content/order.css">
+      <publishTime>05/13/2015 20:52:32</publishTime>
+    </File>
+    <File Include="content/orderDetails.js">
+      <publishTime>05/13/2015 21:52:00</publishTime>
+    </File>
+    <File Include="content/reg.css">
+      <publishTime>04/07/2015 14:30:46</publishTime>
+    </File>
+    <File Include="content/reg.js">
+      <publishTime>05/10/2015 16:30:01</publishTime>
+    </File>
+    <File Include="content/style.css">
+      <publishTime>05/27/2015 21:43:57</publishTime>
+    </File>
+    <File Include="content/ulogo.jpg">
+      <publishTime>04/09/2015 21:19:04</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/07/2015 11:35:57</publishTime>
+    </File>
+    <File Include="Models/bookShop.edmx.diagram">
+      <publishTime>05/31/2015 14:18:27</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/09/2015 18:58:17</publishTime>
+    </File>
+    <File Include="serviceAPI/buyCarDelete.ashx">
+      <publishTime>05/10/2015 17:50:59</publishTime>
+    </File>
+    <File Include="serviceAPI/cancelOrder.ashx">
+      <publishTime>05/13/2015 21:28:31</publishTime>
+    </File>
+    <File Include="serviceAPI/checkUserName.ashx">
+      <publishTime>05/10/2015 15:35:36</publishTime>
+    </File>
+    <File Include="serviceAPI/updateBuyCarNum.ashx">
+      <publishTime>05/12/2015 14:11:41</publishTime>
+    </File>
+    <File Include="uploads/1.jpg">
+      <publishTime>05/27/2015 20:48:55</publishTime>
+    </File>
+    <File Include="uploads/2.jpg">
+      <publishTime>05/27/2015 20:48:55</publishTime>
+    </File>
+    <File Include="uploads/3.jpg">
+      <publishTime>05/27/2015 20:48:55</publishTime>
+    </File>
+    <File Include="uploads/4.jpg">
+      <publishTime>05/27/2015 20:48:55</publishTime>
+    </File>
+    <File Include="uploads/5.jpg">
+      <publishTime>05/27/2015 20:48:55</publishTime>
+    </File>
+    <File Include="Views/Home/BookDetails.cshtml">
+      <publishTime>05/28/2015 14:25:41</publishTime>
+    </File>
+    <File Include="Views/Home/editor.cshtml">
+      <publishTime>05/28/2015 16:40:20</publishTime>
+    </File>
+    <File Include="Views/Home/getNewsContent.cshtml">
+      <publishTime>05/27/2015 23:21:38</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>05/28/2015 13:26:51</publishTime>
+    </File>
+    <File Include="Views/Home/PartialPager.cshtml">
+      <publishTime>05/26/2015 13:38:20</publishTime>
+    </File>
+    <File Include="Views/Home/Search.cshtml">
+      <publishTime>05/10/2015 14:03:00</publishTime>
+    </File>
+    <File Include="Views/Login/Join.cshtml">
+      <publishTime>05/10/2015 16:25:14</publishTime>
+    </File>
+    <File Include="Views/Login/Login.cshtml">
+      <publishTime>05/10/2015 14:07:12</publishTime>
+    </File>
+    <File Include="Views/Login/otherLogin.cshtml">
+      <publishTime>05/08/2015 22:36:49</publishTime>
+    </File>
+    <File Include="Views/Login/userReg.cshtml">
+      <publishTime>05/09/2015 12:43:34</publishTime>
+    </File>
+    <File Include="Views/Manage/AllOrder.cshtml">
+      <publishTime>05/31/2015 23:08:22</publishTime>
+    </File>
+    <File Include="Views/Manage/changePwd.cshtml">
+      <publishTime>05/31/2015 12:47:31</publishTime>
+    </File>
+    <File Include="Views/Manage/Error.cshtml">
+      <publishTime>05/30/2015 23:07:43</publishTime>
+    </File>
+    <File Include="Views/Manage/Index.cshtml">
+      <publishTime>05/30/2015 23:54:47</publishTime>
+    </File>
+    <File Include="Views/Manage/MyDesktop.cshtml">
+      <publishTime>05/31/2015 13:32:17</publishTime>
+    </File>
+    <File Include="Views/Manage/NewsAdmin.cshtml">
+      <publishTime>06/02/2015 10:29:05</publishTime>
+    </File>
+    <File Include="Views/Manage/NewsEditor.cshtml">
+      <publishTime>05/31/2015 14:09:01</publishTime>
+    </File>
+    <File Include="Views/Manage/NewsOperation.cshtml">
+      <publishTime>05/29/2015 13:33:48</publishTime>
+    </File>
+    <File Include="Views/Manage/OrderAudit.cshtml">
+      <publishTime>05/30/2015 19:12:36</publishTime>
+    </File>
+    <File Include="Views/Manage/orderDetails.cshtml">
+      <publishTime>05/30/2015 14:58:12</publishTime>
+    </File>
+    <File Include="Views/Manage/PartialPager.cshtml">
+      <publishTime>05/29/2015 08:59:39</publishTime>
+    </File>
+    <File Include="Views/Manage/RoleSetting.cshtml">
+      <publishTime>05/31/2015 15:25:07</publishTime>
+    </File>
+    <File Include="Views/Manage/UpdateStatus.cshtml">
+      <publishTime>05/31/2015 15:50:31</publishTime>
+    </File>
+    <File Include="Views/Manage/userAdmin.cshtml">
+      <publishTime>05/31/2015 15:37:49</publishTime>
+    </File>
+    <File Include="Views/My/Account.cshtml">
+      <publishTime>04/07/2015 16:49:20</publishTime>
+    </File>
+    <File Include="Views/My/BuyCar.cshtml">
+      <publishTime>05/28/2015 00:47:15</publishTime>
+    </File>
+    <File Include="Views/My/BuyCarTest.cshtml">
+      <publishTime>05/11/2015 17:55:40</publishTime>
+    </File>
+    <File Include="Views/My/MyOrder.cshtml">
+      <publishTime>05/28/2015 12:38:56</publishTime>
+    </File>
+    <File Include="Views/My/newBuyCar.cshtml">
+      <publishTime>05/10/2015 16:49:05</publishTime>
+    </File>
+    <File Include="Views/My/orderDetails.cshtml">
+      <publishTime>05/30/2015 14:30:58</publishTime>
+    </File>
+    <File Include="Views/My/OrderProcessing.cshtml">
+      <publishTime>05/19/2015 10:48:10</publishTime>
+    </File>
+    <File Include="Views/My/PartialPager.cshtml">
+      <publishTime>05/26/2015 13:48:14</publishTime>
+    </File>
+    <File Include="Views/My/Settlement.cshtml">
+      <publishTime>05/13/2015 13:08:17</publishTime>
+    </File>
+    <File Include="Views/public/left.cshtml">
+      <publishTime>05/27/2015 22:03:47</publishTime>
+    </File>
+    <File Include="Views/public/PartialPager.cshtml">
+      <publishTime>05/26/2015 10:37:02</publishTime>
+    </File>
+    <File Include="Views/public/_adminLayout.cshtml">
+      <publishTime>07/06/2015 13:03:34</publishTime>
+    </File>
+    <File Include="Views/public/_Layout.cshtml">
+      <publishTime>05/31/2015 14:52:30</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>04/07/2015 11:35:57</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/20/2015 21:01:31</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

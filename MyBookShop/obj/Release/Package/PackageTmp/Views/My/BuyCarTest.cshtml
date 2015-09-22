@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MyBookShop.Models.bookInfo>
+
+@{
+    ViewBag.Title = "BuyCarTest";
+    Layout = "~/Views/public/_Layout.cshtml";
+}
+
+<h2>BuyCarTest</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bookID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bookPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bookImg)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item
+            @Html.DisplayFor(modelItem => item.bookID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookImg)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

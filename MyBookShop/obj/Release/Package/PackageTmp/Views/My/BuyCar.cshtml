@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "BuyCar";
+    Layout = "~/Views/public/_Layout.cshtml";
+}
+@section Css{
+<script type="text/javascript" charset="UTF-8" src="@Url.Content("~/content/buyCar/car.js")"></script>
+<link href="@Url.Content("~/content/buyCar/style.css")" rel="stylesheet" type="text/css" />
+}
+@if (Session["userLogin"] != null)
+{
+<p>当前位置：蜻蜓网→我的购物车</p>
+    <div class="catbox">
+
+	<table id="cartTable">
+		<thead>
+			<tr>
+				<th hidden><label><input class="check-all check" type="checkbox"/></label></th>
+				<th>商品</th>
+				<th>单价</th>
+				<th>数量</th>
+				<th>小计</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+        @foreach (var item in (IEnumerable<object>)ViewData["pe"])
+            {
+                var s = item.GetType().GetProperty("bookImg").GetValue(item, null);
+			<tr>
+				<td class="checkbox" hidden><input class="check-one check" type="checkbox"/></td>
+                <td class="goods"><img src="/bookImg/@s.ToString()" alt="@item.GetType().GetProperty("bookName").GetValue(item, null)" style="width:50px;height:50px" /><a href="@Url.Content("~/Home/BookDetails?bookId=")@item.GetType().GetProperty("bookID").GetValue(item, null)"><span title="@item.GetType().GetProperty("bookName").GetValue(item, null)">@item.GetType().GetProperty("bookName").GetValue(item, null)</span></a></td>
+				<td class="price">@item.GetType().GetProperty("bookPrice").GetValue(item, null)</td>
+                <td class="count" ><span class="reduce">-</span><input class=" count-input" id="@(item.GetType().GetProperty("sysID").GetValue(item, null))" type="text" value="@item.GetType().GetProperty("buyNum").GetValue(item, null)" /><span class="add">+</span></td>
+				<td class="subtotal">@(Convert.ToDouble(item.GetType().GetProperty("bookPrice").GetValue(item, null).ToString()) * Convert.ToDouble(item.GetType().GetProperty("buyNum").GetValue(item, null).ToString()))</td>
+				<td class="operation"><a href="javascript:;" onclick="buyCarDelete(@(item.GetType().GetProperty("sysID").GetValue(item, null)),this)">删除</a></td>
+			</tr>
+            }
+		</tbody>
+	</table>
+	
+	<div class="foot" id="foot">
+        <a href="@Url.Content("~/My/Settlement")"><div class="fr closing" >结算</div></a>
+		<div class="fr total">合计金额(不含运费)：￥<span id="priceTotal">0.00</span><br>[该金额仅供参考，实际金额以订单结算页面为准]</div>
+        <div class="fr select-all">已选商品<span id="selectedTotal">0</span>件</div>
+	</div>
+
+</div>
+}
+else
+{
+    <p>尚未登录，无法查看购物车</p>
+}

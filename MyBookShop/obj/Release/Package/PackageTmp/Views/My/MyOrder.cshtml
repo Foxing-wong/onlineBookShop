@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MyBookShop.Models.orderInfo>
+@{
+    ViewBag.Title = "MyOrder";
+    Layout = "~/Views/public/_Layout.cshtml";
+}
+@section Css
+{
+<link href="@Url.Content("~/content/order.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript" charset="UTF-8" src="@Url.Content("~/content/orderDetails.js")"></script>
+    }
+
+<p>当前位置：蜻蜓网→我的订单</p>
+
+    @foreach (var item in Model)
+{
+    <table style="margin-top:20px">
+        <tr><th>订单信息</th><th>收货人</th><th>支付方式</th><th>提交时间</th><th>状态</th><th>操作</th></tr>
+        <tr><td colspan="6" style="text-align:left;height:50px;line-height:50px">订单编号：@item.orderId</td></tr>
+        <tr style="height:100px">
+            <td style="text-align:left"></td>
+            <td width="80px">@item.toName</td>
+            <td width="80px">@item.payType</td>
+            <td width="50px">@item.submitTime</td>
+            <td width="100px">@item.orderState</td>
+            <td width="40px">@Html.ActionLink("查看", "orderDetails", new { orderID = item.orderId })<br>@if (item.orderState != "已完成" && item.orderState != "已取消")
+            { <a href="javascript:;" onclick="cancelOrder(@item.orderId)">取消</a>}</td>
+        </tr>
+    </table>
+}
+@if (ViewData["pagemodel"] != null)
+{ 
+    <div class="pagerNav" style="text-align:center">@Html.Partial("PartialPager", ViewData["pagemodel"])</div>
+}
+else
+{ <h3 style="color:red;text-align:center;margin-top:150px">暂无订单信息</h3>}
+
+
+
+
+   
+    @*@if (Session["userLogin"] != null)
+{
+    long orderID = 0;
+    <table>
+        <tr><th>订单信息</th><th>收货人</th><th>订单金额</th><th>提交时间</th><th>状态</th><th>操作</th></tr>
+        @foreach (var item in (IEnumerable<object>)ViewData["orderInfo"])
+        {
+            if (orderID != Convert.ToInt64(item.GetType().GetProperty("orderId").GetValue(item, null)))
+            {
+                <tr><td colspan="6" style="height:20px"></td></tr>
+    <tr>
+        <td style="text-align:left;height:50px;line-height:50px">订单编号：@item.GetType().GetProperty("orderId").GetValue(item, null)</td>
+        <td width="80px">@item.GetType().GetProperty("toName").GetValue(item, null)</td>
+        <td width="80px">@item.GetType().GetProperty("payType").GetValue(item, null)</td>
+        <td width="50px">@item.GetType().GetProperty("submitTime").GetValue(item, null)</td>
+        <td width="100px">@item.GetType().GetProperty("orderState").GetValue(item, null)</td>
+        <td width="40px">@Html.ActionLink("查看", "orderDetails", new { orderID = (item.GetType().GetProperty("orderId").ToString()) })<br>@if (item.GetType().GetProperty("orderState").GetValue(item, null).ToString() != "已完成" && item.GetType().GetProperty("orderState").GetValue(item, null).ToString() != "已取消")
+{ <a href="javascript:;" onclick="cancelOrder(@item.GetType().GetProperty("orderId").GetValue(item, null))">取消</a>}</td>
+    </tr>
+            }
+            orderID = Convert.ToInt64(item.GetType().GetProperty("orderId").GetValue(item, null));
+        }
+    </table>
+}*@
+  

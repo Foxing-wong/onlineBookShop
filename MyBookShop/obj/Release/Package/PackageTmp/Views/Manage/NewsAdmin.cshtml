@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MyBookShop.Models.newsInfo>
+@{
+    ViewBag.Title = "NewsAdmin";
+    Layout = "~/Views/public/_adminLayout.cshtml";
+}
+<script type="text/javascript">
+    function getNewsContent(newsid, ti) {
+        layer.open({
+            type: 2,
+            title: ti,
+            shadeClose: true,
+            shade: 0.8,
+            area: ['800px', '300px'],
+            content: 'http://localhost:57018/Home/getNewsContent?newsId=' + newsid + ''
+        });
+    }
+    </script>
+<div class="panel panel-primary">
+    <div class="panel-heading">新闻动态管理[促销信息、蜻蜓动态、蜻蜓通知]</div>
+    <div class="panel-body">
+        <table class="table table-hover">
+           <tr><th>动态ID</th><th>动态标题</th><th>提交时间</th><th>操作账号</th><th>用户姓名</th><th>更多操作</th></tr>
+            
+@foreach (var item in Model)
+{
+    <tr><td>@item.newsId</td><td>@item.newsTitle</td><td>@item.sumitTime</td><td>@item.submitId</td><td>@item.submitor</td><td><div class="dropdown">
+                                                                                                                                   <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                                                                                                       更多操作
+                                                                                                                                       <span class="caret"></span>
+                                                                                                                                   </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="getNewsContent(@item.newsId,'@item.newsTitle')">查看</a></li>
+            <li class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Content("~/Manage/NewsEditor?type=updateNews&newsID="+item.newsId+"")">修改</a></li>
+            <li class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Content("~/Manage/NewsOperation?type=deleteNews&newsID="+item.newsId+"")">删除</a></li>
+</ul>
+</div></td></tr> 
+}
+        </table>
+        @if (ViewData["pagemodel"] != null)
+        {
+            <div class="pagerNav" style="text-align:center">@Html.Partial("PartialPager", ViewData["pagemodel"])</div>
+        }
+        else
+        { <h3 style="color:red;text-align:center;margin-top:150px;font-family:'Microsoft YaHei'">暂无更多动态</h3>}
+
+    </div>
+</div>
+

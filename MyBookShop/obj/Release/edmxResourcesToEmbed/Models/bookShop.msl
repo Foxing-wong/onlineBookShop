@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookShopModelStoreContainer" CdmEntityContainer="BookShopEntities4">
+    <EntitySetMapping Name="buyCar">
+      <EntityTypeMapping TypeName="BookShopModel.buyCar">
+        <MappingFragment StoreEntitySet="buyCar">
+          <ScalarProperty Name="sysID" ColumnName="sysID" />
+          <ScalarProperty Name="booksID" ColumnName="booksID" />
+          <ScalarProperty Name="buyNum" ColumnName="buyNum" />
+          <ScalarProperty Name="buyUser" ColumnName="buyUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userInfo">
+      <EntityTypeMapping TypeName="BookShopModel.userInfo">
+        <MappingFragment StoreEntitySet="userInfo">
+          <ScalarProperty Name="sysID" ColumnName="sysID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+          <ScalarProperty Name="userTureName" ColumnName="userTureName" />
+          <ScalarProperty Name="userMail" ColumnName="userMail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="toInfo">
+      <EntityTypeMapping TypeName="BookShopModel.toInfo">
+        <MappingFragment StoreEntitySet="toInfo">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="toPhone" ColumnName="toPhone" />
+          <ScalarProperty Name="toAddress" ColumnName="toAddress" />
+          <ScalarProperty Name="toName" ColumnName="toName" />
+          <ScalarProperty Name="toTitle" ColumnName="toTitle" />
+          <ScalarProperty Name="sysid" ColumnName="sysid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookInfo">
+      <EntityTypeMapping TypeName="BookShopModel.bookInfo">
+        <MappingFragment StoreEntitySet="bookInfo">
+          <ScalarProperty Name="bookNotes" ColumnName="bookNotes" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="onlyBuy" ColumnName="onlyBuy" />
+          <ScalarProperty Name="bookImg" ColumnName="bookImg" />
+          <ScalarProperty Name="bookPrice" ColumnName="bookPrice" />
+          <ScalarProperty Name="bookName" ColumnName="bookName" />
+          <ScalarProperty Name="bookID" ColumnName="bookID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderInfo">
+      <EntityTypeMapping TypeName="BookShopModel.orderInfo">
+        <MappingFragment StoreEntitySet="orderInfo">
+          <ScalarProperty Name="payType" ColumnName="payType" />
+          <ScalarProperty Name="orderState" ColumnName="orderState" />
+          <ScalarProperty Name="toPhone" ColumnName="toPhone" />
+          <ScalarProperty Name="toAddress" ColumnName="toAddress" />
+          <ScalarProperty Name="toName" ColumnName="toName" />
+          <ScalarProperty Name="buyUser" ColumnName="buyUser" />
+          <ScalarProperty Name="submitTime" ColumnName="submitTime" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderDetails">
+      <EntityTypeMapping TypeName="BookShopModel.orderDetails">
+        <MappingFragment StoreEntitySet="orderDetails">
+          <ScalarProperty Name="buyNum" ColumnName="buyNum" />
+          <ScalarProperty Name="bookPrice" ColumnName="bookPrice" />
+          <ScalarProperty Name="bookId" ColumnName="bookId" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="sysid" ColumnName="sysid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="adminRole">
+      <EntityTypeMapping TypeName="BookShopModel.adminRole">
+        <MappingFragment StoreEntitySet="adminRole">
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="actionName" ColumnName="actionName" />
+          <ScalarProperty Name="functionName" ColumnName="functionName" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="sysID" ColumnName="sysID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="adminInfo">
+      <EntityTypeMapping TypeName="BookShopModel.adminInfo">
+        <MappingFragment StoreEntitySet="adminInfo">
+          <ScalarProperty Name="adminSkin" ColumnName="adminSkin" />
+          <ScalarProperty Name="adminPwd" ColumnName="adminPwd" />
+          <ScalarProperty Name="adminNick" ColumnName="adminNick" />
+          <ScalarProperty Name="adminName" ColumnName="adminName" />
+          <ScalarProperty Name="adminID" ColumnName="adminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="newsInfo">
+      <EntityTypeMapping TypeName="BookShopModel.newsInfo">
+        <MappingFragment StoreEntitySet="newsInfo">
+          <ScalarProperty Name="submitId" ColumnName="submitId" />
+          <ScalarProperty Name="submitor" ColumnName="submitor" />
+          <ScalarProperty Name="sumitTime" ColumnName="sumitTime" />
+          <ScalarProperty Name="newsContent" ColumnName="newsContent" />
+          <ScalarProperty Name="newsTitle" ColumnName="newsTitle" />
+          <ScalarProperty Name="newsId" ColumnName="newsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

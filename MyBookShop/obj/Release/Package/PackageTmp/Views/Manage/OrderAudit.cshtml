@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "OrderAudit";
+    Layout = "~/Views/public/_adminLayout.cshtml";
+}
+<script type="text/javascript" src="@Url.Content("~/Content/manage/processOrder.js")"></script>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                订单流水号
+            </th>
+            <th>
+                提交时间
+            </th>
+            <th>
+                订单提交者
+            </th>
+            <th>
+                支付方式
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+                更多操作
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="info">
+                <td>
+                    <a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="getOrderContent('@MyBookShop.Models.EncryptHandler.Encrypt(item.orderId.ToString())')">@item.orderId</a>
+                </td>
+                <td>
+                    @item.submitTime
+                </td>
+                <td>
+                    @item.buyUser
+                </td>
+                <td>
+                    @item.payType
+                </td>
+                <td>
+                    @item.orderState
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            变更状态
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('E+@item.orderId')"><span style="color:red">状态异常，等待处理</span></a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('A+@item.orderId')"><span style="color:red">审核通过，等待仓库发货</span></a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (ViewData["pagemodel"] != null)
+{
+    <div class="pagerNav" style="text-align:center">@Html.Partial("PartialPager", ViewData["pagemodel"])</div>
+}
+else
+{ <h3 style="color:red;text-align:center;margin-top:150px;font-family:'Microsoft YaHei'">暂无新的订单需要处理</h3>}

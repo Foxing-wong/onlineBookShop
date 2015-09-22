@@ -1,0 +1,91 @@
+﻿@model IEnumerable<MyBookShop.Models.adminInfo>
+@{
+    ViewBag.Title = "userAdmin";
+    Layout = "~/Views/public/_adminLayout.cshtml";
+}
+<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<script src="http://res.sentsin.com/lay/lib/layer/src/layer.js?v=1.9"></script>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">搜索用户</h3>
+    </div>
+    <div class="panel-body">
+        <form class="navbar-form navbar-left" role="search" method="post">
+            <div class="form-group">
+                <input type="hidden" name="typeValue" value="search">
+                <input name="keyWords" type="text" class="form-control" placeholder="请输入用户名" value="@ViewBag.swords">
+            </div>
+            <button type="submit" class="btn btn-default">搜索</button>
+        </form>
+    </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">新增用户</h3>
+    </div>
+    <div class="panel-body">
+        <form class="navbar-form navbar-left" role="search" method="post">
+            <input type="hidden" name="typeValue" value="addUser">
+            登陆账号：<input name="newAdminName" type="text" class="form-control" placeholder="请输入登陆账号">
+            用户姓名：<input name="adminNick" type="text" class="form-control" placeholder="请输入用户姓名">
+            用户密码：<input name="newAdminPwd" type="password" class="form-control" placeholder="请输入用户密码">
+            <button type="submit" class="btn btn-default">新增用户</button>
+            <span style="color:red">新增用户只能登录，无法操作其他，请到权限设定去修改权限</span>
+        </form>
+    </div>
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                系统ID
+            </th>
+            <th>
+                登陆账号
+            </th>
+            <th>
+                用户姓名
+            </th>
+            <th>
+                更多操作
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="info">
+                <td>
+                    @item.adminID
+                    </td>
+                <td>@item.adminName</td><td>@item.adminNick</td>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <form method="post" class="form-inline">
+                                <input type="hidden" name="typeValue" value="deleteUser">
+                                <input type="hidden" name="userKEY" value="@MyBookShop.Models.EncryptHandler.Encrypt(item.adminID.ToString())">
+                                <button type="submit" class="btn btn-primary btn-xs">删除用户</button>
+                            </form>
+                        </div>
+                        <div class="col-xs-5">
+                                <form method="post" class="form-inline">
+                                    <input type="hidden" name="typeValue" value="resetPwd">
+                                    <input type="hidden" name="userKEY" value="@MyBookShop.Models.EncryptHandler.Encrypt(item.adminID.ToString())">
+                                    <input type="password" name="newAdminPwd"  placeholder="请为该用户输入新的密码">
+                                    <button type="submit" class="btn btn-primary btn-xs">重置密码</button>
+                                </form>
+                            </div>
+
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (ViewData["pagemodel"] != null)
+{
+    <div class="pagerNav" style="text-align:center">@Html.Partial("PartialPager", ViewData["pagemodel"])</div>
+}
+else
+{ <h3 style="color:red;text-align:center;margin-top:150px;font-family:'Microsoft YaHei'">没有可用信息展示</h3>}

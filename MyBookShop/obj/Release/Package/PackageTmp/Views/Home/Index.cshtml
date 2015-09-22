@@ -1,0 +1,116 @@
+﻿@model IEnumerable<MyBookShop.Models.bookInfo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/public/_Layout.cshtml";
+}
+@section Css{
+<link href="@Url.Content("~/content/index/index.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/content/index/indexNews.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript" charset="UTF-8" src="@Url.Content("~/content/index/jQueryindex.js")"></script>
+<script type="text/javascript" charset="UTF-8" src="@Url.Content("~/content/index/indexNews.js")"></script>
+    <script type="text/javascript">
+        function addToBuyCart(bid) {
+                if (http == null) return;
+                http = getHttp();
+                http.onreadystatechange = addToBuyCartCallBack;
+                var url = "http://localhost:57018/Home/addToBuyCar?id=" + bid;
+                http.open("GET", url, true);
+                http.send(null);
+        }
+        function getHttp() {
+            var http = null;
+            try {
+                if (window.ActiveXObject) http = new ActiveXObject("Microsoft.XMLHTTP");
+                else if (window.XMLHttpRequest) http = new XMLHttpRequest();
+                else alert("ERROR");
+            }
+            catch (e) {
+                alert(e.description);
+            }
+            return http;
+        }
+        var http = getHttp();
+        function addToBuyCartCallBack() {
+            if (http.readyState == 4) {
+               layer.msg(http.responseText);
+            }
+        }
+        function getNewsContent(newsid,ti)
+        {
+            layer.open({
+                type: 2,
+                title: ti,
+                shadeClose: true,
+                shade: 0.8,
+                area: ['800px', '300px'],
+                content: 'http://localhost:57018/Home/getNewsContent?newsId='+newsid+''
+            });
+        }
+        function bookdetails(bookid, ti) {
+            layer.open({
+                type: 2,
+                title: ti,
+                shadeClose: true,
+                shade: 0.8,
+                area: ['600px', '600px'],
+                content: 'http://localhost:57018/Home/bookDetails?bookId=' + bookid + ''
+            });
+        }
+        $(document).ready(function(){
+            $("#breakingnews2").BreakingNews({
+                background		:'#FFF',
+                title			:'重要新闻播报',
+                titlecolor		:'#FFF',
+                titlebgcolor	:'#099',
+                linkcolor		:'red',
+                linkhovercolor	:'#099',
+                fonttextsize	:16,
+                isbold			:false,
+                border			:'solid 1px #099',
+                width			:'100%',
+                timer			:1500,
+                autoplay		:true,
+                effect			:'slide'
+				
+            });
+        });	
+        </script>
+}
+<div class="BreakingNewsController easing" id="breakingnews2">
+    <a href="#">
+        <div class="bn-title"></div></a>
+        <ul>
+        @foreach (var item in (IEnumerable<object>)ViewData["newsData"])
+        { 
+            <li><a href="javascript:void(0);" onclick="getNewsContent(@item.GetType().GetProperty("newsId").GetValue(item, null),'@item.GetType().GetProperty("newsTitle").GetValue(item, null)')">@item.GetType().GetProperty("newsTitle").GetValue(item, null)</a></li>
+        }
+        </ul>
+        <div class="bn-arrows"><span class="bn-arrows-left"></span><span class="bn-arrows-right"></span></div>
+</div>
+<div class="zzsc-list">
+    @foreach (var item in Model)
+    {
+        <div class="dressing">
+            <div class="dressing_wrap">
+                <div class="skinimg"><a href="@Url.Content("~/home/bookDetails?bookId="+ item.bookID)" target="_blank"><img src="/bookImg/@Html.DisplayFor(modelItem => item.bookImg)" alt="@item.bookName"></a></div>
+                <div class="information_area">
+                    <div class="information_area_wrap">
+                        <div class="item clearfix">
+                            <h4 class="leftName" title="@item.bookName">@item.bookName</h4>
+                            <i class="W_vline left">|</i>
+                            <div class="price left"><span > ￥@Math.Round(item.bookPrice,2) </span></div>
+                        </div>
+                        <div class="tipinfo clearfix">
+                            <a href="javascript:void(0);" onclick="addToBuyCart(@item.bookID)" class="buybtn"><span>加入购物车</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+<div class="Clear"></div>
+<div class="pagerNav" style="text-align:center">@Html.Partial("PartialPager", ViewData["pagemodel"])</div>
+
+    

@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "orderDetails";
+}
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+@if ((IEnumerable<object>)ViewData["orderData"] != null)
+{
+        double productTotal = 0.00;
+        var tips = "";
+        int allSum = 0;
+        double yunfei = 0.00;
+        <div class="panel panel-primary">
+        <div class="panel-heading">当前订单状态||订单提交时间：@ViewData["submitTime"]</div>
+        <div class="panel-body">
+            <p style="color:red">当前状态：@ViewData["statue"] </p>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">商品清单</div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>商品</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th>小计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in (IEnumerable<object>)ViewData["orderData"])
+                    {
+                        allSum += Convert.ToInt32(item.GetType().GetProperty("buyNum").GetValue(item, null));
+                        double rowTotal = (Convert.ToDouble(item.GetType().GetProperty("bookPrice").GetValue(item, null).ToString()) * Convert.ToDouble(item.GetType().GetProperty("buyNum").GetValue(item, null).ToString()));
+                        var s = item.GetType().GetProperty("bookImg").GetValue(item, null);
+                        <tr>
+                            <td ><img src="/bookImg/@s.ToString()" alt="@item.GetType().GetProperty("bookName").GetValue(item, null)" style="width:50px;height:50px" /><a href="@Url.Content("~/Home/BookDetails?bookId=")@item.GetType().GetProperty("bookID").GetValue(item, null)"><span title="@item.GetType().GetProperty("bookName").GetValue(item, null)" style="line-height: 50px;">@item.GetType().GetProperty("bookName").GetValue(item, null)</span></a></td>
+                            <td >@item.GetType().GetProperty("bookPrice").GetValue(item, null)</td>
+                            <td >@item.GetType().GetProperty("buyNum").GetValue(item, null)</td>
+                            <td >@rowTotal</td>
+                        </tr>
+                        productTotal += rowTotal;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    if (productTotal > 99)
+        {
+            yunfei = 0.00;
+            tips = "[满99免运费]";
+        }
+        else
+        {
+            yunfei = 10.00;
+            tips = "[订单金额不足99元，收取运费10元]";
+        }
+    <div class="panel panel-primary">
+        <div class="panel-heading">信息确认</div>
+        <div class="panel-body">
+            <p>合计商品数量：@allSum 件</p>
+            <p> 总金额(不含运费)：￥@productTotal 元</p>
+            <p>运费：￥@yunfei 元<span style="margin-left:10px;color:red;">@tips</span></p>
+            <p>应付金额：￥@(productTotal + yunfei)元</p>
+        </div>
+    </div>
+    
+        <div class="panel panel-primary">
+        <div class="panel-heading">收货人信息</div>
+        <div class="panel-body">
+            <p>收货人&emsp;：@ViewData["toName"]</p>
+            <p>联系电话：@ViewData["toPhone"]</p>
+            <p>收货地址：@ViewData["toAddress"]</p>
+        </div>
+    </div>
+    
+    <div class="panel panel-primary">
+        <div class="panel-heading">支付方式</div>
+        <div class="panel-body">
+            <p>支付方式：@ViewData["payType"]</p>
+        </div>
+    </div>
+}
+else
+{
+<p style="color:red">系统错误</p>
+}

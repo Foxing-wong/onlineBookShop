@@ -1,0 +1,149 @@
+﻿@model IEnumerable<MyBookShop.Models.orderInfo>
+    @{
+        ViewBag.Title = "UpdateStatus";
+        Layout = "~/Views/public/_adminLayout.cshtml";
+    }
+    <script type="text/javascript" src="@Url.Content("~/Content/manage/processOrder.js")"></script>
+<form class="navbar-form navbar-left" role="search" method="post">
+    <div class="form-group">
+        <select name="searchType" class="form-control"> 
+            @if(ViewBag.stype!=null)
+            {
+                if (ViewBag.stype == "orderid")
+                { 
+                    <option value="orderid" selected>订单流水号</option>
+                    <option value="userName">会员账号</option>
+                    <option value="toName">收货人</option>
+                    <option value="toPhone">联系电话</option>
+                }else if (ViewBag.stype == "userName")
+                {
+                    <option value="orderid">订单流水号</option>
+                    <option value="userName" selected>会员账号</option>
+                    <option value="toName">收货人</option>
+                    <option value="toPhone">联系电话</option>
+                }
+                else if (ViewBag.stype == "toName")
+                {
+                    <option value="orderid">订单流水号</option>
+                    <option value="userName">会员账号</option>
+                    <option value="toName" selected>收货人</option>
+                    <option value="toPhone">联系电话</option>
+                }
+                else if (ViewBag.stype == "toPhone")
+                {
+                    <option value="orderid">订单流水号</option>
+                    <option value="userName">会员账号</option>
+                    <option value="toName">收货人</option>
+                    <option value="toPhone" selected>联系电话</option>
+                }
+            }
+            else
+            {
+                <option value="orderid">订单流水号</option>
+                <option value="userName">会员账号</option>
+                <option value="toName">收货人</option>
+                <option value="toPhone">联系电话</option>  
+            }
+        </select>
+        <input name="keyWords" type="text" class="form-control" placeholder="请输入关键词" value="@ViewBag.swords">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+</form> 
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    订单流水号
+                </th>
+                <th>
+                    提交时间
+                </th>
+                <th>
+                    订单提交者
+                </th>
+                <th>
+                    支付方式
+                </th>
+                <th>
+                    收货人
+                </th>
+                <th>
+                    收货地址
+                </th>
+                <th>
+                    联系电话
+                </th>
+                <th>
+                    状态
+                </th>
+                <th>
+                    更多操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="info">
+                    <td>
+                        <a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="getOrderContent('@MyBookShop.Models.EncryptHandler.Encrypt(item.orderId.ToString())')">@item.orderId</a>
+                    </td>
+                    <td>
+                        @item.submitTime
+                    </td>
+                    <td>
+                        @item.buyUser
+                    </td>
+                    <td>
+                        @item.payType
+                    </td>
+                    <td>
+                        @item.toName
+                    </td>
+                    <td>
+                        @item.toAddress
+                    </td>
+                    <td>
+                        @item.toPhone
+                    </td>
+                    <td>
+                        @if (item.orderState == "等待系统处理" || item.orderState == "已完成" || item.orderState == "已发货，等待用户收货")
+                        {
+                            @item.orderState
+                        }
+                        else
+                        { <span style="color:red">@item.orderState</span>
+                        }
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                变更状态为：
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('I+@item.orderId')">已发货，等待用户收货</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('D+@item.orderId')">已完成</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('B+@item.orderId')"><span style="color:red">已取消(用户主动取消)</span></a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('C+@item.orderId')"><span style="color:red">已取消(后台系统取消)</span></a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('F+@item.orderId')"><span style="color:red">订单作废</span></a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('G+@item.orderId')"><span style="color:red">其他，等待处理</span></a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('H+@item.orderId')"><span style="color:red">打回等待系统处理状态</span></a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('E+@item.orderId')"><span style="color:red">状态异常，等待处理</span></a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('A+@item.orderId')"><span style="color:red">审核通过，等待仓库发货</span></a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick="processOrder('X+@item.orderId')"><span style="color:red">已办理退货</span></a></li>
+
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (ViewData["pagemodel"] != null)
+    {
+        <div class="pagerNav" style="text-align:center">@Html.Partial("PartialPager", ViewData["pagemodel"])</div>
+    }
+    else
+    { <h3 style="color:red;text-align:center;margin-top:150px;font-family:'Microsoft YaHei'">无可用订单</h3>}
+

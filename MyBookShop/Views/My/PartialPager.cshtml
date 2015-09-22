@@ -1,0 +1,38 @@
+﻿@model MyBookShop.Models.BasePageModel
+@using MyBookShop.Models
+@{if (Model != null && Model.TotalPages != 0)
+{
+    <ul class="pagination">
+        @{
+    //显示“上一页”超链接
+    @Url.CreatePageLiTag(Model, Model.CurrentIndex - 1, false, Model.IsHasPrePage, "上一页");
+  //如果总页数小于等于最大显示页数，则显示除最后一页之外的所有页的超链接
+  if (Model.TotalPages <= Model.DisplayMaxPages)
+  {
+      for (int i = 1; i < Model.TotalPages; i++)
+      {
+       @Url.CreatePageLiTag(Model, i, i == Model.CurrentIndex);
+
+      }
+  }
+  //如果总页数大于最大显示页数，根据当前页码确定除最后一页之外的显示方式，有待完善，参考“当当网”
+  else
+  {
+      for (int i = 1; i < Model.DisplayMaxPages-1; i++)
+      {
+          @Url.CreatePageLiTag(Model, i, i == Model.CurrentIndex);
+      }
+      @*@Url.CreatePageLiTag(Model, Model.CurrentIndex, false, false, "...");*@
+     <li><a>...</a></li>
+  }
+  //显示除最后一页超链接
+ @Url.CreatePageLiTag(Model, Model.TotalPages, Model.TotalPages == Model.CurrentIndex)
+    //显示“下一页”超链接
+ @Url.CreatePageLiTag(Model, Model.CurrentIndex + 1, false, Model.IsHasNextPage, "下一页")
+
+        }
+        @*<li id="userIn">
+            到第<input type='text' value='1' style="width:25px" />页<input id="userSub" value="确定" type="button" />
+        </li>*@
+    </ul>
+}}

@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BookShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adminInfo">
+          <Key>
+            <PropertyRef Name="adminID" />
+          </Key>
+          <Property Name="adminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminNick" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminPwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminSkin" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="adminRole">
+          <Key>
+            <PropertyRef Name="sysID" />
+          </Key>
+          <Property Name="sysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="functionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="actionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="isLogin" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bookInfo">
+          <Key>
+            <PropertyRef Name="bookID" />
+          </Key>
+          <Property Name="bookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bookName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bookPrice" Type="money" Nullable="false" />
+          <Property Name="bookImg" Type="text" Nullable="false" />
+          <Property Name="bookNotes" Type="text" />
+          <Property Name="onlyBuy" Type="int" />
+          <Property Name="isDel" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="buyCar">
+          <Key>
+            <PropertyRef Name="sysID" />
+          </Key>
+          <Property Name="sysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="booksID" Type="int" Nullable="false" />
+          <Property Name="buyNum" Type="int" Nullable="false" />
+          <Property Name="buyUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="newsInfo">
+          <Key>
+            <PropertyRef Name="newsId" />
+          </Key>
+          <Property Name="newsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="newsTitle" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="newsContent" Type="text" Nullable="false" />
+          <Property Name="sumitTime" Type="datetime" Nullable="false" />
+          <Property Name="submitor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="submitId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orderDetails">
+          <Key>
+            <PropertyRef Name="sysid" />
+          </Key>
+          <Property Name="sysid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderId" Type="bigint" Nullable="false" />
+          <Property Name="bookId" Type="int" Nullable="false" />
+          <Property Name="bookPrice" Type="money" Nullable="false" />
+          <Property Name="buyNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orderInfo">
+          <Key>
+            <PropertyRef Name="orderId" />
+          </Key>
+          <Property Name="orderId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="submitTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="buyUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="toName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="toAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="toPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="orderState" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="payType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="toInfo">
+          <Key>
+            <PropertyRef Name="sysid" />
+          </Key>
+          <Property Name="sysid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="toTitle" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="toName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="toAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="toPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userInfo">
+          <Key>
+            <PropertyRef Name="sysID" />
+          </Key>
+          <Property Name="sysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userPwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userTureName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userMail" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BookShopModelStoreContainer">
+          <EntitySet Name="adminInfo" EntityType="Self.adminInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adminRole" EntityType="Self.adminRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bookInfo" EntityType="Self.bookInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="buyCar" EntityType="Self.buyCar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="newsInfo" EntityType="Self.newsInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderDetails" EntityType="Self.orderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderInfo" EntityType="Self.orderInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="toInfo" EntityType="Self.toInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userInfo" EntityType="Self.userInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="buyCar">
+          <Key>
+            <PropertyRef Name="sysID" />
+          </Key>
+          <Property Name="sysID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="booksID" Type="Int32" Nullable="false" />
+          <Property Name="buyNum" Type="Int32" Nullable="false" />
+          <Property Name="buyUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userInfo">
+          <Key>
+            <PropertyRef Name="sysID" />
+          </Key>
+          <Property Name="sysID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userTureName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BookShopEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="buyCar" EntityType="Self.buyCar" />
+          <EntitySet Name="userInfo" EntityType="Self.userInfo" />
+          <EntitySet Name="toInfo" EntityType="BookShopModel.toInfo" />
+          <EntitySet Name="bookInfo" EntityType="BookShopModel.bookInfo" />
+          <EntitySet Name="orderInfo" EntityType="BookShopModel.orderInfo" />
+          <EntitySet Name="orderDetails" EntityType="BookShopModel.orderDetails" />
+          <EntitySet Name="adminRole" EntityType="BookShopModel.adminRole" />
+          <EntitySet Name="adminInfo" EntityType="BookShopModel.adminInfo" />
+          <EntitySet Name="newsInfo" EntityType="BookShopModel.newsInfo" />
+        </EntityContainer>
+        <EntityType Name="toInfo">
+          <Key>
+            <PropertyRef Name="sysid" />
+          </Key>
+          <Property Name="sysid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="toTitle" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="toName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="toAddress" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="toPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="bookInfo">
+          <Key>
+            <PropertyRef Name="bookID" />
+          </Key>
+          <Property Name="bookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bookName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bookPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="bookImg" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="onlyBuy" Type="Int32" />
+          <Property Name="isDel" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="bookNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="orderInfo">
+          <Key>
+            <PropertyRef Name="orderId" />
+          </Key>
+          <Property Name="orderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="submitTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="buyUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="toName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="toAddress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="toPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="orderState" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="payType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="orderDetails">
+          <Key>
+            <PropertyRef Name="sysid" />
+          </Key>
+          <Property Name="sysid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderId" Type="Int64" Nullable="false" />
+          <Property Name="bookId" Type="Int32" Nullable="false" />
+          <Property Name="bookPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="buyNum" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="adminRole">
+          <Key>
+            <PropertyRef Name="sysID" />
+          </Key>
+          <Property Name="sysID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="functionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="actionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isLogin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="adminInfo">
+          <Key>
+            <PropertyRef Name="adminID" />
+          </Key>
+          <Property Name="adminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adminNick" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adminPwd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adminSkin" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="newsInfo">
+          <Key>
+            <PropertyRef Name="newsId" />
+          </Key>
+          <Property Name="newsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="newsTitle" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="newsContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sumitTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="submitor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="submitId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookShopModelStoreContainer" CdmEntityContainer="BookShopEntities4">
+          <EntitySetMapping Name="buyCar">
+            <EntityTypeMapping TypeName="BookShopModel.buyCar">
+              <MappingFragment StoreEntitySet="buyCar">
+                <ScalarProperty Name="sysID" ColumnName="sysID" />
+                <ScalarProperty Name="booksID" ColumnName="booksID" />
+                <ScalarProperty Name="buyNum" ColumnName="buyNum" />
+                <ScalarProperty Name="buyUser" ColumnName="buyUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userInfo">
+            <EntityTypeMapping TypeName="BookShopModel.userInfo">
+              <MappingFragment StoreEntitySet="userInfo">
+                <ScalarProperty Name="sysID" ColumnName="sysID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+                <ScalarProperty Name="userTureName" ColumnName="userTureName" />
+                <ScalarProperty Name="userMail" ColumnName="userMail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="toInfo">
+            <EntityTypeMapping TypeName="BookShopModel.toInfo">
+              <MappingFragment StoreEntitySet="toInfo">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="toPhone" ColumnName="toPhone" />
+                <ScalarProperty Name="toAddress" ColumnName="toAddress" />
+                <ScalarProperty Name="toName" ColumnName="toName" />
+                <ScalarProperty Name="toTitle" ColumnName="toTitle" />
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bookInfo">
+            <EntityTypeMapping TypeName="BookShopModel.bookInfo">
+              <MappingFragment StoreEntitySet="bookInfo">
+                <ScalarProperty Name="bookNotes" ColumnName="bookNotes" />
+                <ScalarProperty Name="isDel" ColumnName="isDel" />
+                <ScalarProperty Name="onlyBuy" ColumnName="onlyBuy" />
+                <ScalarProperty Name="bookImg" ColumnName="bookImg" />
+                <ScalarProperty Name="bookPrice" ColumnName="bookPrice" />
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="bookID" ColumnName="bookID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderInfo">
+            <EntityTypeMapping TypeName="BookShopModel.orderInfo">
+              <MappingFragment StoreEntitySet="orderInfo">
+                <ScalarProperty Name="payType" ColumnName="payType" />
+                <ScalarProperty Name="orderState" ColumnName="orderState" />
+                <ScalarProperty Name="toPhone" ColumnName="toPhone" />
+                <ScalarProperty Name="toAddress" ColumnName="toAddress" />
+                <ScalarProperty Name="toName" ColumnName="toName" />
+                <ScalarProperty Name="buyUser" ColumnName="buyUser" />
+                <ScalarProperty Name="submitTime" ColumnName="submitTime" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderDetails">
+            <EntityTypeMapping TypeName="BookShopModel.orderDetails">
+              <MappingFragment StoreEntitySet="orderDetails">
+                <ScalarProperty Name="buyNum" ColumnName="buyNum" />
+                <ScalarProperty Name="bookPrice" ColumnName="bookPrice" />
+                <ScalarProperty Name="bookId" ColumnName="bookId" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adminRole">
+            <EntityTypeMapping TypeName="BookShopModel.adminRole">
+              <MappingFragment StoreEntitySet="adminRole">
+                <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+                <ScalarProperty Name="actionName" ColumnName="actionName" />
+                <ScalarProperty Name="functionName" ColumnName="functionName" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="sysID" ColumnName="sysID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adminInfo">
+            <EntityTypeMapping TypeName="BookShopModel.adminInfo">
+              <MappingFragment StoreEntitySet="adminInfo">
+                <ScalarProperty Name="adminSkin" ColumnName="adminSkin" />
+                <ScalarProperty Name="adminPwd" ColumnName="adminPwd" />
+                <ScalarProperty Name="adminNick" ColumnName="adminNick" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="newsInfo">
+            <EntityTypeMapping TypeName="BookShopModel.newsInfo">
+              <MappingFragment StoreEntitySet="newsInfo">
+                <ScalarProperty Name="submitId" ColumnName="submitId" />
+                <ScalarProperty Name="submitor" ColumnName="submitor" />
+                <ScalarProperty Name="sumitTime" ColumnName="sumitTime" />
+                <ScalarProperty Name="newsContent" ColumnName="newsContent" />
+                <ScalarProperty Name="newsTitle" ColumnName="newsTitle" />
+                <ScalarProperty Name="newsId" ColumnName="newsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

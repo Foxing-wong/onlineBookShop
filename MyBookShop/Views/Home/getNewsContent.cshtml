@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["title"]</title>
+</head>
+<body>
+    <div>
+        <div style="font-size:30px;text-align:center">@ViewData["title"]</div>
+        <div style="font-size:10px;text-align:center">@ViewData["time"]</div>
+        <div>@Html.Raw(ViewData["content"].ToString())</div>
+    </div>
+</body>
+</html>

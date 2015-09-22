@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "加入蜻蜓";
+    Layout = "~/Views/public/_Layout.cshtml";
+}
+@section Css{
+    <link href="@Url.Content("~/Content/reg.css")" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/Content/reg.js")"></script>
+
+}
+<fieldset>
+    <legend>欢迎加入蜻蜓网上书店</legend>
+    <form name="regFrm" method="post" action="@Url.Content("~/Login/userReg")" onsubmit="return checkUserInfo();">
+        <table align="center">
+            @Html.AntiForgeryToken()
+            <tr> <th>登陆账号：</th><td> <input type="text" id="userName" name="userName" placeholder="请输入登陆账号" onchange="ckUserName()"  /></td></tr>
+            <tr> <th>登陆密码：</th><td> <input type="password" id="userPwd" name="userPwd" placeholder="请输入登录密码" /></td></tr>
+            <tr> <th>重复密码：</th><td><input type="password" id="userPwd2" name="userPwd2" placeholder="请重复登陆密码"/></td></tr>
+            <tr> <th style="text-align:right"> 姓&nbsp;&nbsp; &nbsp;&nbsp; 名：</th><td>  <input type="text" id="trueName" name="trueName" placeholder="请输入真实姓名" /></td></tr>
+            <tr> <th style="text-align:right">电子邮箱：</th><td>  <input type="email" name="userMail" placeholder="请输入邮箱" /></td></tr>
+            <tr><td colspan="2" style="text-align:center"><input type="submit" name="userSubmit" id="login_submit" value="加入蜻蜓" /></td></tr>
+        </table>
+    </form>
+</fieldset>

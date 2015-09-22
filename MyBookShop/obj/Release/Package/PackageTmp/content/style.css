@@ -1,0 +1,332 @@
+﻿body {
+    font-family: "WenQuanYi Micro Hei","WenQuanYi Zen Hei","Microsoft YaHei",arial,sans-serif;
+    font-size: 16px;
+     display:block;
+     margin:0;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+#Container {
+    width: 1020px;
+    margin: 0 auto; /*设置整个容器在浏览器中水平居中*/
+}
+
+#Content-Left {
+    float: left;
+    width: 160px;
+    height: 100%;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+}
+
+#Content-Main {
+    margin-top: 10px;
+    margin-left: 30px;
+    height: 100%;
+    width: 820px;
+    float: right; /*设置浮动，实现多列效果，div+Css布局中很重要的*/
+}
+/*注：Content-Left和Content-Main元素是Content元素的子元素，两个元素使用了float:left;设置成两列，这个两个元素的宽度和这个两个元素设置的padding、margin的和一定不能大于父层Content元素的宽度，否则设置列将失败*/
+.Clear {
+    clear: both;
+}
+
+#Footer {
+    background: url(footer.jpg) no-repeat top left;
+    width: 1020px;
+    height: 61px;
+    color:white;
+    text-align: center;
+    border: 1px solid #CCC;
+    margin: 20px auto; /*设置整个容器在浏览器中水平居中*/
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.daohang {
+    width: 1020px;
+    height: 225px;
+    margin: 0 auto;
+    display:block;
+    overflow:hidden;
+     display:block;
+}
+
+.daohang_in {
+    margin:0px;
+    width: 1020px;
+    float: left;
+    background: url(navbg.jpg) no-repeat top left;
+    height: 45px;
+    overflow:hidden;
+    display:block;
+}
+.daohang_in ul {
+    width: 1020px;
+    float:left;
+}
+
+.daohang_in li {
+    width: 100px;
+    height: 45px;
+    margin: 0 0px 0 0px;
+    float: left;
+    display: inline;
+}
+ .daohang_in li a {
+     color: #fff;
+     font-size: 12px;
+ }
+.daohang_in li a .menua_l {
+    width: 17px;
+    height: 45px;
+    float: left;
+}
+.daohang_in li a .menua_r {
+    width: 58px;
+    padding-right: 19px;
+    height: 30px;
+    padding-top: 15px;
+    float: left;
+    text-align: center;
+}
+
+.daohang_in li a:hover .menua_l {
+    background: url(20111129085658467.jpg) no-repeat top left;
+}
+
+.daohang_in li a:hover .menua_r {
+                background: url(20111129085716508.jpg) no-repeat top right;
+}
+
+.main {
+    margin-left: 210px;
+    color: #000000;
+    font-size: 14px;
+    text-align: left;
+}
+
+.div1 {
+    text-align: center;
+    width: 160px;
+    padding-top: 10px;
+}
+
+.div2 {
+    color: red;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 13px;
+    position: relative;
+    border-bottom: #ccc 1px dotted;
+}
+
+.jbxx {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 40px;
+    top: 10px;
+}
+
+.tubiao {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 40px;
+    top: 10px;
+    background: url(../img/4.png);
+}
+
+.div3 {
+    display: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.div3 ul {
+    margin: 0;
+    padding: 0;
+}
+
+.div3 li {
+    height: 30px;
+    line-height: 30px;
+    list-style: none;
+    border-bottom: #ccc 1px dotted;
+    text-align: center;
+}
+
+#userIn {
+  float: left;
+  padding: 5.5px 12px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  color: #337ab7;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+}
+#userSub {
+   position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  color: #337ab7;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  margin-left: -1px;
+}
+
+.pager {
+  padding-left: 0;
+  margin: 20px 0;
+  list-style: none;
+  text-align: center;
+}
+.pager li {
+  display: inline;
+}
+.pager li > a,
+.pager li > span {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 15px;
+}
+.pager li > a:hover,
+.pager li > a:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+.pager .next > a,
+.pager .next > span {
+  float: right;
+}
+.pager .previous > a,
+.pager .previous > span {
+  float: left;
+}
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+  color: #777777;
+  background-color: #ffffff;
+  cursor: not-allowed;
+}
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.pagination > li {
+  display: inline;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  color: #337ab7;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  margin-left: -1px;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  color: #23527c;
+  background-color: #eeeeee;
+  border-color: #dddddd;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 2;
+  color: #ffffff;
+  background-color: #337ab7;
+  border-color: #337ab7;
+  cursor: default;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777777;
+  background-color: #ffffff;
+  border-color: #dddddd;
+  cursor: not-allowed;
+}
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+  padding: 10px 16px;
+  font-size: 18px;
+}
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}

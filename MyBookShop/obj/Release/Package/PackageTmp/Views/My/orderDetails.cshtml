@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "订单详情";
+    Layout = "~/Views/public/_Layout.cshtml";
+}
+@section Css
+{
+<link href="@Url.Content("~/content/buyCar/style.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript" charset="UTF-8" src="@Url.Content("~/content/orderDetails.js")"></script>
+}
+<p>当前位置：蜻蜓网→订单详情</p>
+@if (Session["userLogin"] != null && (IEnumerable<object>)ViewData["orderData"] != null)
+{
+    double productTotal = 0.00;
+    var tips = "";
+    int allSum = 0;
+    double yunfei = 0.00;
+    <div class="panel panel-primary">
+        <div class="panel-heading">当前订单状态订单详情||订单提交时间：@ViewData["submitTime"]</div>
+        <div class="panel-body">
+            <p style="color:red">当前状态：@ViewData["statue"] </p>
+            @if (ViewData["statue"].ToString() != "已完成" && ViewData["statue"].ToString() != "已取消")
+            {
+                <a href="javascript:;" onclick="cancelOrder(@ViewData["orderId"])">取消订单</a>
+            }
+        </div>
+    </div>
+        <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+            <legend style="color:blue"></legend>
+            <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+                <legend style="color:blue"></legend>
+                
+            </fieldset>
+        <div class="catbox">
+            <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+                <legend style="color:blue">商品清单</legend>
+                <table id="cartTable">
+                    <thead>
+                        <tr>
+                            <th>商品</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in (IEnumerable<object>)ViewData["orderData"])
+                        {
+                            allSum += Convert.ToInt32(item.GetType().GetProperty("buyNum").GetValue(item, null));
+                            double rowTotal = (Convert.ToDouble(item.GetType().GetProperty("bookPrice").GetValue(item, null).ToString()) * Convert.ToDouble(item.GetType().GetProperty("buyNum").GetValue(item, null).ToString()));
+                            var s = item.GetType().GetProperty("bookImg").GetValue(item, null);
+                            <tr>
+                                <td class="goods"><img src="/bookImg/@s.ToString()" alt="@item.GetType().GetProperty("bookName").GetValue(item, null)" style="width:50px;height:50px" /><a href="@Url.Content("~/Home/BookDetails?bookId=")@item.GetType().GetProperty("bookID").GetValue(item, null)"><span title="@item.GetType().GetProperty("bookName").GetValue(item, null)" style="line-height: 50px;">@item.GetType().GetProperty("bookName").GetValue(item, null)</span></a></td>
+                                <td class="price">@item.GetType().GetProperty("bookPrice").GetValue(item, null)</td>
+                                <td class="count">@item.GetType().GetProperty("buyNum").GetValue(item, null)</td>
+                                <td class="subtotal">@rowTotal</td>
+                            </tr>
+                            productTotal += rowTotal;
+                        }
+                    </tbody>
+                </table>
+            </fieldset>
+            @if (productTotal > 99)
+            {
+                yunfei = 0.00;
+                tips = "[满99免运费]";
+            }
+            else
+            {
+                yunfei = 10.00;
+                tips = "[订单金额不足99元，收取运费10元]";
+            }
+            @*<div class="foot" id="foot" style="clear: both; height: 90px;">
+
+
+                            <table border="0"><tr><td>q11111</td></tr></table>
+                            <div style="line-height:10px;float:right;"><p><span style="margin-left:500px">合计商品数量：</span>@allSum 件<p>
+                                <p><span style="margin-left:500px"></span><p>
+                <p></p>
+                                <p></p></div>
+                            <div style="line-height:60px;float:left"></div>
+                        </div>*@
+                <input type="hidden" name="allSum" value="@(productTotal + yunfei)">
+                <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+                    <legend style="color:blue">信息确认</legend>
+                    <p>合计商品数量：@allSum 件</p>
+                    <p> 总金额(不含运费)：￥@productTotal 元</p>
+                    <p>运费：￥@yunfei 元<span style="margin-left:10px;color:red;">@tips</span></p>
+                    <p>应付金额：￥@(productTotal + yunfei)元</p>
+                </fieldset>
+                <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+                    <legend style="color:blue">收货人信息</legend>
+                    <p>收货人&emsp;：@ViewData["toName"]</p>
+                    <p>联系电话：@ViewData["toPhone"]</p>
+                    <p>收货地址：@ViewData["toAddress"]</p>
+
+                </fieldset>
+                <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+                    <legend style="color:blue">支付方式</legend>
+                    <p>支付方式：@ViewData["payType"]</p>
+                </fieldset>
+        </div>
+            </fieldset/>
+}
+else
+{
+            <p>尚未登录，无法查看订单详情</p>
+            }
+
+

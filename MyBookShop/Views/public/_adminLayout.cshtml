@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="@Url.Content("~/content/favicon.ico")" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <script src="@Url.Content("~/content/layer/layer.js")"></script>
+    <script type="text/javascript">
+        function refreshDesktop() {
+            window.location.reload();
+        }
+    </script>
+    @RenderSection("adminCss", false)
+</head>
+<body>
+    <div>
+        <nav class="@Session["adminSkin"]" style="font-family:'Microsoft YaHei'">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="@Url.Content("~/Manage/MyDesktop")"><span style="font-family:'Microsoft YaHei';font-weight:bold">蜻蜓网上书店</span></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">订单管理<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="divider"></li>
+                                <li><a href="@Url.Content("~/Manage/AllOrder")">订单总览</a></li>
+                                <li class="divider"></li>
+                                <li><a href="@Url.Content("~/Manage/OrderAudit")">订单审核</a></li>
+                                <li class="divider"></li>
+                                <li><a href="@Url.Content("~/Manage/UpdateStatus")">订单状态更新</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">动态管理<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="divider"></li>
+                                <li><a href="@Url.Content("~/Manage/NewsEditor?type=addNews")">新增动态</a></li>
+                                <li class="divider"></li>
+                                <li><a href="@Url.Content("~/Manage/NewsAdmin")">管理动态</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">商品管理<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="divider"></li>
+                                <li><a href="#">商品入库</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">商品库存更新</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">商品资料修改</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">会员管理<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="divider"></li>
+                                <li><a href="#">会员信息查看</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">会员资料更新</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">会员状态调整</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">系统管理<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="divider"></li>
+                                <li><a href="@Url.Content("~/Manage/userAdmin")">用户管理</a></li>
+                                <li class="divider"></li>
+                                <li><a href="@Url.Content("~/Manage/RoleSetting")">权限设定</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <button type="button" class="btn btn-default" onclick="refreshDesktop()">刷新控制面板</button>
+                    </form>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">蜻蜓用户：@Session["adminNick"]<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><img src="@Url.Content("~/content/ulogo.jpg")" alt="..." class="img-rounded"></li>
+                                <li class="divider"></li>
+                                <li style="text-align:center">@Session["adminLogin"]</li>
+                                <li class="divider"></li>
+                                <li style="text-align:center"><a href="@Url.Content("~/Manage/changeSkin")">更换皮肤</a></li>
+                                <li class="divider"></li>
+                                <li style="text-align:center"><a href="@Url.Content("~/Manage/changePwd")">修改密码</a></li>
+                                <li class="divider"></li>
+                                <li style="text-align:center"><a href="@Url.Content("~/Manage/adminLogout")"><span style="color:red">退出系统</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        @RenderBody()
+    </div>
+    <div class="list-group">
+        <div class="text-center">
+        <div class="list-group-item active">
+            <h4 class="list-group-item-heading"><strong>蜻蜓网上书店版权所有</strong></h4>
+            <p class="list-group-item-text">&copy;2014 - @DateTime.Now.Year.ToString()</p>
+        </div>
+            </div>
+    </div>
+</body>
+</html>

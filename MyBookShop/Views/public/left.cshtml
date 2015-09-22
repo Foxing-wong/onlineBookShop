@@ -1,0 +1,79 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $(".div2").click(function () {
+            $(this).next("div").slideToggle("slow")
+			.siblings(".div3:visible").slideUp("slow");
+        });
+    });
+</script>
+
+    @if (Session["userLogin"] != null)
+{
+    <fieldset style="width: 160px;">
+        <legend style=" font-style:italic">Welcome</legend>
+        <div style="text-align:center"><img src="@Url.Content("~/content/ulogo.jpg")" style="width:150px;height:152px"><p>欢迎登录</p>
+        </div>
+    </fieldset>
+}
+
+    <fieldset>
+    <legend>书籍分类</legend>
+    <div class="div1">
+        <div class="div2">文艺</div>
+        <div class="div3">
+            <ul>
+                <li><a href="#">小说</a></li>
+                <li><a href="#">文学</a></li>
+                <li><a href="#">传记</a></li>
+                <li><a href="#">青春文学</a></li>
+            </ul>
+        </div>
+        <div class="div2">教育</div>
+        <div class="div3">
+            <ul>
+                <li><a href="#">中小学教辅</a></li>
+                <li><a href="#">考试</a></li>
+                <li><a href="#">大中专教材</a></li>
+                <li><a href="#">外语</a></li>
+                <li><a href="#">考试</a></li>
+            </ul>
+        </div>
+        <div class="div2">童书</div>
+        <div class="div3">
+            <ul>
+                <li><a href="#">中国儿童文学</a></li>
+                <li><a href="#">外国儿童文学</a></li>
+                <li><a href="#">精装图画书</a></li>
+                <li><a href="#">平装图画书</a></li>
+            </ul>
+        </div>
+        <div class="div2">科技</div>
+        <div class="div3">
+            <ul>
+                <li><a href="#">科普</a></li>
+                <li><a href="#">计算机/网络</a></li>
+                <li><a href="#">医学</a></li>
+                <li><a href="#">工业技术</a></li>
+            </ul>
+        </div>
+        <div class="div2">经管励志</div>
+        <div class="div3">
+            <ul>
+                <li><a href="#">励志/成功</a></li>
+                <li><a href="#">管理</a></li>
+                <li><a href="#">经济</a></li>
+                <li><a href="#">心灵修养</a></li>
+                <li><a href="#">职场</a></li>
+            </ul>
+        </div>
+        <div class="div2">刊/进口书</div>
+        <div class="div3">
+            <ul>
+                <li><a href="#">英文图书</a></li>
+                <li><a href="#">港澳台图书</a></li>
+                <li><a href="#">杂志</a></li>
+                <li><a href="#">进口艺术画册</a></li>
+            </ul>
+        </div>
+    </div>
+</fieldset>

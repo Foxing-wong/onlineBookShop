@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>editor</title>
+</head>
+<body>
+    <div>
+        <script src="../../content/editor/kindeditor-min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            KindEditor.ready(function (K) {
+                var options = {
+                    uploadJson: '../content/editor/asp.net/upload_json.ashx',
+                    fileManagerJson: '../content/editor/asp.net/file_manager_json.ashx',
+                    allowFileManager: true
+                };
+                window.editor = K.create('#content', options);
+            });
+        </script>
+        @using (Html.BeginForm())
+        {
+            <textarea id="content" name="content" style="width:700px;height:300px;"></textarea>
+            <input type="submit" value="提交" />
+        }   
+    </div>
+</body>
+</html>

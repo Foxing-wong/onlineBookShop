@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "管理员登录";
+    Layout = "~/Views/public/_Layout.cshtml";
+}
+@section Css{
+    <link href="@Url.Content("~/Content/login.css")" rel="Stylesheet" type="text/css" />
+}
+<div style="margin:0 auto;width:250px;">
+    <form id="loginForm" action="@Url.Content("~/Manage/adminLogin")">
+        <p style="color:red">@ViewBag.info</p>
+        <table>
+            <tr><th>管理账号</th><td><input type="text" name="adminName"  id="userName" /></td></tr>
+            <tr><th>管理密码</th><td><input type="password" name="adminPwd" id="userPwd" /></td></tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" id="usubmit" value="登录">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <span id="ps">该系统仅提供给认证用户使用</span>
+                </td>
+        </table>
+    </form>
+</div>

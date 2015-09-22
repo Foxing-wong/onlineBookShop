@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "结算";
+    Layout = "~/Views/public/_Layout.cshtml";
+}
+@section Css{
+    <link href="@Url.Content("~/content/buyCar/style.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        function userSubmit()
+        {
+            if ($("#toName").val() == "") {
+                layer.tips('请先填写收货人', '#toName');
+                return;
+            }
+            if ($("#toAddress").val() == "") {
+                layer.tips('请先填写收货地址', '#toAddress');
+                return;
+            }
+            if ($("#toPhone").val() == "")
+            {
+                layer.tips('请先填写联系电话', '#toPhone');
+                return;
+            }
+            var s=document.getElementById("userCheckBox").checked;
+            if (s == false) {
+                layer.msg('请先勾选[确认信息无误]');
+                return;
+            } else {
+                document.getElementById("orderInfo").action = "@Url.Content("~/My/OrderProcessing")";
+                document.getElementById("orderInfo").submit();
+            }
+            
+        }
+        function fillToInfo(s1, s2, s3)
+        {
+            $("#toName").val(s1);
+            $("#toAddress").val(s2);
+            $("#toPhone").val(s3);
+
+        }
+        function receiptInformation()
+        {
+            layer.open({
+                type: 2,
+                title: '收货信息管理',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['380px', '220px'],
+                content: '/login/login'
+            });
+
+        }
+        </script>
+}
+@if (Session["userLogin"] != null)
+{
+    double productTotal=0.00;
+    var tips = "";
+    int allSum = 0;
+    double yunfei = 0.00;
+    <p>当前位置：蜻蜓网→订单结算</p>
+    <div class="catbox">
+       
+        <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+            <legend style="color:blue">送货清单</legend>
+            <a href="@Url.Content("~/My/buyCar")" style="float:right">返回购物车修改</a>
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>商品</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th>小计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in (IEnumerable<object>)ViewData["pe"])
+                    {
+                        allSum++;
+                        double rowTotal = (Convert.ToDouble(item.GetType().GetProperty("bookPrice").GetValue(item, null).ToString()) * Convert.ToDouble(item.GetType().GetProperty("buyNum").GetValue(item, null).ToString()));
+                        var s = item.GetType().GetProperty("bookImg").GetValue(item, null);
+                        <tr>
+                            <td class="goods"><img src="/bookImg/@s.ToString()" alt="@item.GetType().GetProperty("bookName").GetValue(item, null)" style="width:50px;height:50px" /><span title="@item.GetType().GetProperty("bookName").GetValue(item, null)">@item.GetType().GetProperty("bookName").GetValue(item, null)</span></td>
+                            <td class="price">@item.GetType().GetProperty("bookPrice").GetValue(item, null)</td>
+                            <td class="count">@item.GetType().GetProperty("buyNum").GetValue(item, null)</td>
+                            <td class="subtotal">@rowTotal</td>
+                        </tr>
+                        productTotal += rowTotal;
+                    }
+                </tbody>
+            </table>
+            </fieldset>
+                @if (productTotal > 99)
+                {
+                    yunfei = 0.00;
+                    tips = "[满99免运费]";
+                }
+                else
+                {
+                    yunfei = 10.00;
+                    tips = "[订单金额不足99元，收取运费10元]";
+                }
+                @*<div class="foot" id="foot" style="clear: both; height: 90px;">
+
+
+                        <table border="0"><tr><td>q11111</td></tr></table>
+                        <div style="line-height:10px;float:right;"><p><span style="margin-left:500px">合计商品数量：</span>@allSum 件<p>
+                            <p><span style="margin-left:500px"></span><p>
+            <p></p>
+                            <p></p></div>
+                        <div style="line-height:60px;float:left"></div>
+                    </div>*@
+        <form method="post" action="#" name="orderInfo" id="orderInfo">
+            <input type="hidden" name="allSum" value="@(productTotal + yunfei)">
+                <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+                    <legend style="color:blue">信息确认</legend>
+                    <p>合计商品数量：@allSum 件</p>
+                    <p> 总金额(不含运费)：￥@productTotal 元</p>
+                    <p>运费：￥@yunfei 元<span style="margin-left:10px;color:red;">@tips</span></p>
+                    <p>应付金额：￥@(productTotal + yunfei)元</p>
+                </fieldset>
+                <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+                    <legend style="color:blue">填写收货人信息</legend>
+                    <a href="javascript:void(0)" onclick=" receiptInformation()" style="float:right">收货信息管理</a>
+    快捷填写：
+                    <input type="radio" name="toInfo" onclick="fillToInfo('','','')" />使用新的地址
+    @foreach (var item in (IEnumerable<object>)ViewData["todata"])
+{
+    <input type="radio" name="toInfo" onclick="fillToInfo('@item.GetType().GetProperty("toName").GetValue(item, null)','@item.GetType().GetProperty("toAddress").GetValue(item, null)','@item.GetType().GetProperty("toPhone").GetValue(item, null)')" />@item.GetType().GetProperty("toTitle").GetValue(item, null)
+}
+    <p>收货人&emsp;：<input type="text" id="toName" name="toName" style="width:200px"></p>
+    <p>联系电话：<input type="text" id="toPhone" name="toPhone" style="width:200px"></p>
+    <p>收货地址：<input type="text" id="toAddress" name="toAddress" style="width:500px"></p>
+   
+</fieldset>
+                <fieldset style="margin-top:20px; border:1px solid #adcd3c;background:#f2fddb;">
+                    <legend style="color:blue">选择支付方式</legend>
+                    <input type="radio" name="userPay" value="货到付款" checked="checked" />货到付款
+                    <input type="radio" name="userPay" value="第三方支付" />第三方支付
+                    <input type="radio" name="userPay" value="蜻蜓币支付" />蜻蜓币支付
+                </fieldset>
+        <div class="foot" id="foot">
+            <div style="float:left;line-height:60px;margin-left:20px;color:red"><input type="checkbox" id="userCheckBox" name="userCheck" value="checkInfo" />我已确认信息无误</div>
+            <a href="javascript:void(0)" onclick="userSubmit()"><div class="fr closing">提交订单</div></a>
+        </div>
+            </form>
+</div>
+}
+else
+{
+    <p>尚未登录，无法查看购物车</p>
+}
+

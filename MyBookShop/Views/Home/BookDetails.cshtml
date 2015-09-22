@@ -1,0 +1,120 @@
+﻿@model IEnumerable<MyBookShop.Models.bookInfo>
+@{
+    ViewBag.Title = "BookDetails";
+    Layout = "~/Views/public/_Layout.cshtml";
+}
+@section Css{
+    <style>
+        .goodsImg {
+            float: left;
+            margin-left: 20px;
+            width: 180px;
+            text-align:center;
+        }
+        .goodsName {
+            float: left;
+            font-weight: bold;
+            color: black;
+            font-size: 18px;
+            display: block;
+            width: 620px; /*对宽度的定义,根据情况修改*/
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .goodsInfo {
+        float:left;
+        }
+        .buybtn {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #FF9B01;
+            background-color: #FFA00A;
+            color: white;
+            border-radius: 2px;
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+            .buybtn:hover {
+                text-decoration: none;
+                background: #FFB847;
+                background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(255, 184, 71, 1)),color-stop(100%,rgba(255, 162, 16, 1)));
+            }
+
+            .buybtn span {
+                border-color: #FFB33B;
+                padding: 0 9px 0 10px;
+                white-space: nowrap;
+                display: inline-block;
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 2px;
+                height: 18px;
+                line-height: 17px;
+                vertical-align: middle;
+            }
+
+        </style>
+    <script type="text/javascript">
+        function addToBuyCart(bid) {
+            if (http == null) return;
+            http = getHttp();
+            http.onreadystatechange = addToBuyCartCallBack;
+            var url = "http://localhost:57018/Home/addToBuyCar?id=" + bid;
+            http.open("GET", url, true);
+            http.send(null);
+        }
+        function getHttp() {
+            var http = null;
+            try {
+                if (window.ActiveXObject) http = new ActiveXObject("Microsoft.XMLHTTP");
+                else if (window.XMLHttpRequest) http = new XMLHttpRequest();
+                else alert("ERROR");
+            }
+            catch (e) {
+                alert(e.description);
+            }
+            return http;
+        }
+        var http = getHttp();
+        function addToBuyCartCallBack() {
+            if (http.readyState == 4) {
+                layer.msg(http.responseText);
+            }
+        }
+        </script>
+}
+<p>当前位置：蜻蜓网→书籍信息浏览</p>
+@foreach (var item in Model)
+{
+    
+     <div class="goodsImg"><img src="/bookImg/@Html.DisplayFor(modelItem => item.bookImg)" alt="@item.bookName"></div>
+    <div class="goodsName">@item.bookName</div>
+   <div class="goodsInfo">
+    <p>蜻蜓价：@item.bookPrice</p>
+    @if(item.onlyBuy!=null)
+    {
+        <p style="color:red">蜻蜓说：该商品存在限购，每张订单仅允许购买 @item.onlyBuy 个</p>
+    }
+    else { 
+        <p>蜻蜓说：该商品开放购买，无购买限制</p>
+    }
+    @if (item.isDel == "Y")
+{
+    <p style="color:red;font-weight:bold">该商品已下架，不可购买 </p>
+}
+else
+{
+          <p>该商品销售中，可购买 <a href="javascript:void(0);" onclick="addToBuyCart(@item.bookID)" class="buybtn"><span>加入购物车</span></a></p>
+    }
+       </div><div style="clear:both"></div>
+    <fieldset style="margin-top: 20px; border: 1px solid #adcd3c;">
+    <legend style="color:red;font-weight:bold">商品详情</legend>
+    <div>@Html.Raw(item.bookNotes)</div>
+</fieldset>
+}
+
+

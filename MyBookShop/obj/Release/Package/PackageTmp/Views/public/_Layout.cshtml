@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title →蜻蜓网上书店</title>
+    <link rel="shortcut icon" href="@Url.Content("~/content/favicon.ico")" />
+    <link href="@Url.Content("~/content/style.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/Content/left_main.js")"></script>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <script src="http://res.sentsin.com/lay/lib/layer/src/layer.js?v=1.9"></script>
+    <script type="text/javascript">
+        function loginForm()
+        {
+            layer.open({
+                type: 2,
+                title: '欢迎登录蜻蜓网',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['380px', '220px'],
+                content: '@Url.Content("~/login/login")' });
+        }
+        function searchCheck()
+        {
+            if ($("#searchWords").val() == "") {
+                layer.tips('请先输入要查询的关键字', '#tips');
+                return false;}
+            else{
+                return true;}
+        }
+    </script>
+    @RenderSection("Css", false)
+</head>
+<body>
+    <div class="daohang"><!--Logo以及导航栏--><img src="@Url.Content("~/content/logo.jpg")" style="display: block; text-align: center;"><div class="daohang_in"><ul>
+                <li><a href="@Url.Content("~/")"><div class="menua_l"></div><div class="menua_r">首页</div></a></li>
+                @if (Session["userLogin"] != null)
+                {
+                    <li><a href="@Url.Content("~/Login/logout")"><div class="menua_l"></div><div class="menua_r">注销</div></a></li>
+                }
+                else
+                {
+                    <li><a href="javascript:void(0)" onclick="loginForm()"><div class="menua_l"></div><div class="menua_r">登录</div></a></li>
+                }
+                <li><a href="@Url.Content("~/Login/Join")"><div class="menua_l"></div><div class="menua_r">加入蜻蜓</div></a></li>
+                <li><a href="@Url.Content("~/My/Account")"><div class="menua_l"></div><div class="menua_r">我的账户</div></a></li>
+                <li><a href="@Url.Content("~/My/BuyCar")"><div class="menua_l"></div><div class="menua_r">购物车</div></a></li>
+                <li><a href="@Url.Content("~/My/MyOrder")"><div class="menua_l"></div><div class="menua_r">我的订单</div></a></li>
+                <li><a href="@Url.Content("~/Manage/Index")"><div class="menua_l"></div><div class="menua_r">管理页</div></a></li>
+                <li style="width:320px;float:right;"><form onsubmit="return searchCheck() " action="@Url.Content("~/Home/Search")" method="get"><select name="searchType" style="font-size:14px;color:black;width:70px;height:26px;margin:5px auto 5px; position: relative;"><option value="bookName">书名</option><option value="author">作者</option><option value="publisher">出版社</option></select>&nbsp;&nbsp;<input type="text" id="searchWords" name="searchWords" placeholder="请输入要查询的内容" style="font-size:14px;color:black;width:173px;height:20px;margin:5px auto 5px; position: relative;" />&nbsp;&nbsp;<input type="submit" id="tips" value="查询" style="font-size:14px;color: black; width: 50px; height: 26px; margin: 5px auto 5px; position: relative;" /></form></li>
+            </ul>
+        </div>
+    </div>
+    <div id="Container">
+        
+        <!--左侧布局，包括分类信息，个人登录之后的信息-->
+        <div id="Content-Left">
+            @RenderPage("~/Views/Public/left.cshtml") 
+        </div>
+        
+        <!--主布局，包括分类信息，个人登录之后的信息-->
+        <div id="Content-Main">
+                @RenderBody()
+        </div>
+    </div>
+    
+    <!--清除布局用，主要是清除float的-->
+    <div class="Clear"></div>
+
+    <!--以下为版权信息-->
+    <div id="Footer"><p>&copy;蜻蜓网上书店版权所有</p></div>
+</body>
+</html>
+
+

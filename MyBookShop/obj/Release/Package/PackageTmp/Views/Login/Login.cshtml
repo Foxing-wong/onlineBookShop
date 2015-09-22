@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<link href="@Url.Content("~/Content/login.css")" rel="Stylesheet" type="text/css" />
+<link href="@Url.Content("~/content/style.css")" rel="stylesheet" type="text/css" />
+<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<script src="http://res.sentsin.com/lay/lib/layer/src/layer.js?v=1.9"></script>
+<script type="text/javascript">
+    function loginInfoCheck()
+    {
+        if ($("#userName").val()=="")
+        {
+            layer.msg('请先输入登录账号');
+            return false;
+        }
+        if ($("#userPwd").val()=="") {
+            layer.msg('请输入登录密码');
+            return false;
+        }
+        return true;
+    }
+</script>
+<div style="margin:0 auto;width:250px;">
+    <form id="loginForm" method="post" onsubmit="return loginInfoCheck()" action="userLogin">
+        <table>
+            <tr> <td colspan="2" style="text-align:center"><font color='red'> @ViewData["ps"]</font></td></tr>
+            <tr><th>登陆账号</th><td><input type="text" name="userName" id="userName" /></td></tr>
+            <tr><th>登陆密码</th><td><input type="password" name="userPwd" id="userPwd" /></td></tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" id="usubmit" value="登录">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <a href="@Url.Content("~/Login/Join")" target="_parent">没有账号?去注册</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

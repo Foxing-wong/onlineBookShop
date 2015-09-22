@@ -1,0 +1,43 @@
+﻿#userName{
+		font-size: 14px;
+        color: #92a4bf;
+        width: 152px;
+        height: 34px;
+        margin: 0 auto 5px;
+        position: relative;
+}
+#userPwd{
+		font-size: 14px;
+        color: #92a4bf;
+        width: 152px;
+        height: 34px;
+        margin: 0 auto 5px;
+        position: relative;
+}
+#userName:focus {
+	    border: 2px solid red;
+        }
+#userPwd:focus {
+	    border: 2px solid red;
+        }
+#usubmit{
+		 padding: 3px 0;
+         width:225px;
+         line-height: 30px;
+         -webkit-border-radius: 5px;
+         -moz-border-radius: 5px;
+         border-radius: 5px;
+         display: block;
+         color: #ffffff;
+         font-size: 16px;
+         font-weight: bold;
+         text-align: center;
+         border: 1px solid #3790CC;
+         background-color: #3B9BDC;
+         top: 0px;
+    left: 1px;
+}
+#ps {
+color:red;
+text-align:center;
+}
